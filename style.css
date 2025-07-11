@@ -38,3 +38,15 @@ body {
 .toggle-checkbox:checked + .toggle-label {
     background-color: #0A2240;
 }
+
+/* Estilos para o Modal de Notícia */
+.modal {
+    transition: opacity 0.25s ease;
+}
+.modal-content {
+     transition: transform 0.25s ease;
+     transform: translateY(-20px);
+}
+.modal:not(.hidden) .modal-content {
+    transform: translateY(0);
+}
