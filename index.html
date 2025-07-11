@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo Integrado - NewScout</title>
+    <!-- Tailwind CSS para estilização rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonte do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link para seu arquivo de estilos customizados -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Configuração do Tailwind para o modo escuro
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="antialiased text-gray-800 dark:text-gray-200">
+
+    <!-- Container Principal que gerencia as telas -->
+    <div id="app-container">
+
+        <!-- Tela Principal do Dashboard (Visível por padrão) -->
+        <div id="dashboard-view">
+            <div class="flex min-h-screen">
+                <!-- Coluna Lateral de Filtros (Esquerda) -->
+                <aside class="w-full max-w-xs bg-white dark:bg-gray-800 p-6 border-r border-gray-200 dark:border-gray-700 flex-col hidden lg:flex">
+                    <!-- Logo e Nome -->
+                    <div class="flex items-center space-x-3 pb-6 border-b border-gray-200 dark:border-gray-700">
+                        <div class="bg-navy text-yellow-dark w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xl">
+                            NS
+                        </div>
+                        <h1 class="text-2xl font-bold text-navy">NewScout</h1>
+                    </div>
+                    
+                    <div class="flex-grow mt-6">
+                        <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-4">Filtros e Busca</h2>
+                        
+                        <!-- Busca Rápida -->
+                        <form id="quick-search-form" class="flex items-center mb-2">
+                            <input type="text" id="quick-search-input" placeholder="Busca rápida..." class="w-full px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 ring-navy text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            <button type="submit" class="bg-navy text-white p-2.5 rounded-r-lg hover:bg-opacity-90">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            </button>
+                        </form>
+                        
+                        <!-- Botão de Busca Avançada -->
+                        <button id="advanced-search-button" class="w-full text-sm font-semibold text-navy hover:underline mb-6">Busca Avançada</button>
+
+                         <hr class="border-gray-200 dark:border-gray-700">
+                        <!-- Temas Recorrentes -->
+                        <div class="mt-6">
+                            <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-3">Temas Recorrentes</h3>
+                            <div id="themes-container" class="space-y-2">
+                                <button data-theme="Inflação" class="theme-btn w-full flex items-center space-x-3 text-left px-3 py-2 rounded-lg font-medium transition-colors theme-button-active">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-4"></path></svg>
+                                    <span>Inflação</span>
+                                </button>
+                                <button data-theme="Energia" class="theme-btn w-full flex items-center space-x-3 text-left px-3 py-2 rounded-lg font-medium transition-colors theme-button">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                                    <span>Energia</span>
+                                </button>
+                                <button data-theme="Petróleo" class="theme-btn w-full flex items-center space-x-3 text-left px-3 py-2 rounded-lg font-medium transition-colors theme-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.52c2.47-2.47 6.74-2.47 9.21 0 .73.73 1.18 1.73 1.27 2.78.09 1.05-.2 2.13-.89 2.98L12 22l-9.59-9.72c-.69-.85-.98-1.93-.89-2.98.09-1.05.54-2.05 1.27-2.78 2.47-2.47 6.74-2.47 9.21 0z"></path></svg>
+                                    <span>Petróleo</span>
+                                </button>
+                                <button data-theme="Ibovespa" class="theme-btn w-full flex items-center space-x-3 text-left px-3 py-2 rounded-lg font-medium transition-colors theme-button">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                                    <span>Ibovespa</span>
+                                </button>
+                                <button data-theme="Dólar" class="theme-btn w-full flex items-center space-x-3 text-left px-3 py-2 rounded-lg font-medium transition-colors theme-button">
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                    <span>Dólar</span>
+                                </button>
+                                <!-- Botão para Adicionar Novo Tema -->
+                                <button id="add-theme-button" class="w-full flex items-center space-x-3 text-left px-3 py-2 mt-4 rounded-lg text-gray-600 dark:text-gray-400 font-medium border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-navy hover:text-navy transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                    <span>Adicionar Tema</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Botão de Configurações -->
+                    <div class="pt-6 border-t border-gray-200 dark:border-gray-700">
+                         <button id="settings-button" class="w-full flex items-center space-x-3 text-left px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06-.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            <span>Configurações</span>
+                        </button>
+                    </div>
+                </aside>
+
+                <!-- Área de Conteúdo (Direita) -->
+                <main id="main-content" class="flex-1 p-6 lg:p-10">
+                     <!-- O conteúdo das notícias será renderizado aqui pelo JavaScript -->
+                </main>
+            </div>
+        </div>
+        
+        <!-- Tela de Configurações (Oculta por padrão) -->
+        <div id="settings-view" class="hidden">
+            <div class="min-h-screen flex items-center justify-center p-4">
+                <div class="w-full max-w-2xl bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="mb-4">
+                        <button id="back-from-settings-button" class="flex items-center space-x-2 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-navy dark:hover:text-yellow-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            <span>Voltar para o Dashboard</span>
+                        </button>
+                    </div>
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-navy">Configurações</h2>
+                        <p class="text-gray-500 dark:text-gray-400">Gerencie suas preferências e configurações da aplicação.</p>
+                    </div>
+                    <!-- Conteúdo das Configurações -->
+                    <div class="space-y-8">
+                        <!-- Gerenciar Fontes -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2 mb-4">Gerenciar Fontes</h3>
+                            <form id="add-source-form" class="flex items-center gap-2 mb-4">
+                                <input type="url" id="source-url-input" placeholder="https://exemplo.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-navy text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" required>
+                                <button type="submit" class="bg-navy text-white font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 whitespace-nowrap">Adicionar Fonte</button>
+                            </form>
+                            <ul id="sources-list" class="space-y-2">
+                                <!-- Fontes serão adicionadas dinamicamente aqui -->
+                            </ul>
+                        </div>
+                         <!-- Notificações por E-mail -->
+                         <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2 mb-4">Notificações por E-mail</h3>
+                            <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                                <span class="font-medium text-gray-700 dark:text-gray-300">Receber resumos diários por e-mail</span>
+                                <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                    <input type="checkbox" name="email-toggle" id="email-toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                                    <label for="email-toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 dark:bg-gray-600 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Preferências -->
+                         <div>
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 border-b dark:border-gray-700 pb-2 mb-4">Preferências</h3>
+                             <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                                <span class="font-medium text-gray-700 dark:text-gray-300">Ativar Tema Escuro (Dark Mode)</span>
+                                <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                    <input type="checkbox" name="dark-mode-toggle" id="dark-mode-toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                                    <label for="dark-mode-toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 dark:bg-gray-600 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Busca Avançada (Oculta por padrão) -->
+        <div id="advanced-search-view" class="hidden">
+             <div class="min-h-screen flex items-center justify-center p-4">
+                <div class="w-full max-w-lg bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="mb-4">
+                        <button id="back-from-search-button" class="flex items-center space-x-2 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-navy dark:hover:text-yellow-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            <span>Voltar para o Dashboard</span>
+                        </button>
+                    </div>
+                     <form id="advanced-search-form">
+                        <div class="mb-6 text-center">
+                            <h2 class="text-2xl font-bold text-navy">Busca Avançada</h2>
+                            <p class="text-gray-500 dark:text-gray-400">Utilize filtros detalhados para encontrar notícias.</p>
+                        </div>
+                        <div class="space-y-5">
+                            <div>
+                                <label for="adv-tema" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Tema / Palavra-chave</label>
+                                <input type="text" id="adv-tema" name="tema" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-navy text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Ex: Tecnologia, Finanças...">
+                            </div>
+                            <div>
+                                <label for="adv-periodo" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Período</label>
+                                <select id="adv-periodo" name="periodo" class="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-navy dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <option value="1">Último dia</option>
+                                    <option value="7" selected>Últimos 7 dias</option>
+                                    <option value="30">Últimos 30 dias</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="adv-idioma" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Idioma</label>
+                                <select id="adv-idioma" name="idioma" class="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-navy dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <option value="pt-BR">Português</option>
+                                    <option value="en">Inglês</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button type="submit" class="w-full bg-navy text-white font-bold py-3 px-4 rounded-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 ring-navy transition-colors">
+                                Buscar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Classificação de Tema (Oculta por padrão) -->
+        <div id="classify-view" class="hidden">
+            <div class="min-h-screen flex items-center justify-center p-4">
+                <div class="w-full max-w-lg bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <div class="mb-4">
+                        <button id="back-to-dashboard-button" class="flex items-center space-x-2 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-navy dark:hover:text-yellow-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            <span>Voltar para o Dashboard</span>
+                        </button>
+                    </div>
+                    <form id="classify-theme-form">
+                        <div class="mb-6 text-center">
+                            <h2 class="text-2xl font-bold text-navy">Classificar Tema</h2>
+                            <p class="text-gray-500 dark:text-gray-400">Defina as regras de relevância e prioridade para os temas.</p>
+                        </div>
+                        <div class="space-y-5">
+                            <div>
+                                <label for="tema" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Tema</label>
+                                <input type="text" id="tema" name="tema" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-[#0A2240] dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Ex: Inteligência Artificial">
+                            </div>
+                            <div>
+                                <label for="palavras-chave" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Palavras-chave para o tema</label>
+                                <input type="text" id="palavras-chave" name="palavras-chave" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-[#0A2240] dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Ex: IA, machine learning, deep learning">
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Separe as palavras-chave por vírgula.</p>
+                            </div>
+                            <div>
+                                <label for="relevancia" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Grau de relevância</label>
+                                <select id="relevancia" name="relevancia" class="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-[#0A2240] dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <option value="muito-relevante">Muito relevante</option>
+                                    <option value="relevante" selected>Relevante</option>
+                                    <option value="baixa-relevancia">Baixa relevância</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="prioridade" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Prioridade de exibição</label>
+                                <select id="prioridade" name="prioridade" class="w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ring-[#0A2240] dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    <option value="alta">Entre os 5 primeiros</option>
+                                    <option value="media" selected>Prioridade mediana</option>
+                                    <option value="baixa">Final da lista</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <button type="submit" class="w-full bg-[#0A2240] text-white font-bold py-3 px-4 rounded-lg hover:bg-[#081B33] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A2240] transition-colors">
+                                Salvar Classificação
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link para seu arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
