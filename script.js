@@ -1,50 +1,54 @@
 // --- Mock de Dados de Notícias (Simulação de um banco de dados) ---
 const newsData = {
     'Inflação': [
-        { title: 'BC projeta alta da inflação para o próximo trimestre', source: 'Valor Econômico', summary: 'O comitê de política monetária indicou em ata que a projeção de alta nos preços é influenciada pelo cenário externo...' },
-        { title: 'Presidente do FED fará pronunciamento sobre juros amanhã', source: 'Reuters', summary: 'A expectativa do mercado é de que a taxa de juros se mantenha estável, mas o comunicado pode trazer novas sinalizações...' },
-        { title: 'Índice de preços ao consumidor acelera em maio', source: 'IBGE', summary: 'A principal alta foi observada no grupo de alimentos e bebidas, pressionando o orçamento das famílias.'},
-        { title: 'Analistas de mercado revisam projeção de inflação para cima', source: 'InfoMoney', summary: 'O Boletim Focus desta semana mostra que a expectativa para o IPCA no final do ano subiu pela quarta vez consecutiva.'},
-        { title: 'Impacto do câmbio na inflação deve ser monitorado, diz economista', source: 'CNN Brasil', summary: 'A desvalorização do real frente ao dólar pode encarecer produtos importados e insumos para a indústria.'},
-        { title: 'Governo anuncia medidas para tentar conter a alta dos preços', source: 'G1', summary: 'O pacote inclui a redução de impostos sobre determinados produtos e a renegociação de dívidas.'}
+        { title: 'BC projeta alta da inflação para o próximo trimestre', source: 'Valor Econômico', url: '#', summary: 'O comitê de política monetária indicou em ata que a projeção de alta nos preços é influenciada pelo cenário externo e pela demanda interna, que continua aquecida. A autoridade monetária sinalizou que pode adotar novas medidas de contenção caso o índice de preços ao consumidor não demonstre sinais de arrefecimento. Especialistas consultados apontam que a decisão está alinhada com as expectativas do mercado, embora alguns analistas considerem que a ação do BC poderia ser mais incisiva. O relatório destaca também a volatilidade no preço das commodities como um fator de risco relevante para o controle inflacionário no curto e médio prazo.' },
+        { title: 'Presidente do FED fará pronunciamento sobre juros amanhã', source: 'Reuters', url: '#', summary: 'A expectativa do mercado é de que a taxa de juros se mantenha estável, mas o comunicado pode trazer novas sinalizações para o futuro da política monetária americana. Investidores de todo o mundo estarão atentos a qualquer indicação sobre os próximos passos do Federal Reserve, que podem impactar os mercados globais. A decisão será anunciada após a reunião de dois dias do comitê.' },
+        { title: 'Índice de preços ao consumidor acelera em maio', source: 'IBGE', url: '#', summary: 'A principal alta foi observada no grupo de alimentos e bebidas, pressionando o orçamento das famílias. Itens como carnes, frutas e legumes tiveram aumentos expressivos, refletindo questões sazonais e custos de produção mais elevados. O resultado coloca mais pressão sobre a meta de inflação do governo para este ano.'},
+        { title: 'Analistas de mercado revisam projeção de inflação para cima', source: 'InfoMoney', url: '#', summary: 'O Boletim Focus desta semana mostra que a expectativa para o IPCA no final do ano subiu pela quarta vez consecutiva. A mediana das projeções agora se encontra acima do teto da meta estabelecida pelo Conselho Monetário Nacional, o que aumenta a probabilidade de novas altas na taxa Selic nas próximas reuniões do Copom.'},
+        { title: 'Impacto do câmbio na inflação deve ser monitorado', source: 'CNN Brasil', url: '#', summary: 'A desvalorização do real frente ao dólar pode encarecer produtos importados e insumos para a indústria. Segundo economistas, a pressão cambial é um dos principais vetores de risco para a trajetória dos preços nos próximos meses, exigindo atenção por parte da equipe econômica e do Banco Central para evitar uma espiral inflacionária.'},
+        { title: 'Governo anuncia medidas para tentar conter a alta dos preços', source: 'G1', url: '#', summary: 'O pacote inclui a redução de impostos sobre determinados produtos da cesta básica e a renegociação de dívidas para consumidores. O objetivo é aliviar o impacto da inflação sobre a população de baixa renda e estimular o consumo, mas críticos alertam para o possível impacto fiscal das medidas no longo prazo.'}
     ],
     'Energia': [
-        { title: 'Aneel aprova reajuste em tarifas de energia para distribuidoras do Nordeste', source: 'Agência Brasil', summary: 'Os novos valores entram em vigor a partir do próximo mês e impactarão consumidores residenciais e comerciais...' },
-        { title: 'Construção de novo parque eólico no Rio Grande do Sul é anunciada', source: 'Canal Energia', summary: 'O investimento de R$ 2 bilhões visa ampliar a capacidade de geração de energia renovável na região...' },
-        { title: 'Crise hídrica pode levar a novo aumento na conta de luz', source: 'Folha de S.Paulo', summary: 'O baixo nível dos reservatórios das hidrelétricas acende um alerta para a necessidade de acionamento de termelétricas.'},
-        { title: 'Brasil avança em ranking de energia solar', source: 'Estadão', summary: 'O país ultrapassou a marca de 40 GW de potência instalada, consolidando-se como um dos líderes globais no setor.'},
-        { title: 'Leilão de transmissão contrata R$ 15 bilhões em investimentos', source: 'Valor Econômico', summary: 'Os novos projetos visam reforçar a rede elétrica e garantir o escoamento da energia de fontes renováveis.'},
-        { title: 'Baterias de armazenamento são a nova fronteira do setor elétrico', source: 'Exame', summary: 'Tecnologias para armazenar energia e garantir estabilidade à rede ganham cada vez mais espaço.'}
+        { title: 'Aneel aprova reajuste em tarifas de energia', source: 'Agência Brasil', url: '#', summary: 'Os novos valores entram em vigor a partir do próximo mês e impactarão consumidores residenciais e comerciais. O reajuste foi justificado pela agência devido ao aumento dos custos com a geração de energia e os investimentos na rede de transmissão.' },
+        { title: 'Construção de novo parque eólico é anunciada', source: 'Canal Energia', url: '#', summary: 'O investimento de R$ 2 bilhões visa ampliar a capacidade de geração de energia renovável na região. O projeto deve gerar milhares de empregos durante a fase de construção e contribuirá para a diversificação da matriz energética do país.' }
     ],
     'Petróleo': [
-        { title: 'Preço do barril Brent opera em alta com tensões no Oriente Médio', source: 'Infomoney', summary: 'A cotação do petróleo tipo Brent subiu mais de 2% nesta sexta-feira, refletindo a instabilidade geopolítica...' },
-        { title: 'Petrobras anuncia descoberta de nova reserva no pré-sal', source: 'Estadão', summary: 'A nova reserva tem potencial para aumentar significativamente a produção nacional nos próximos anos...' },
-        { title: 'OPEP mantém previsão de crescimento da demanda global por petróleo', source: 'Reuters', summary: 'A organização acredita que o consumo mundial continuará a crescer, apesar das incertezas econômicas.'},
-        { title: 'Transição energética pressiona gigantes do petróleo a diversificar', source: 'The Wall Street Journal', summary: 'Grandes companhias petrolíferas estão a investir em energias renováveis para se adaptarem a um futuro de baixo carbono.'},
-        { title: 'Preços da gasolina e do diesel devem subir na próxima semana', source: 'UOL Economia', summary: 'O reajuste nas refinarias deve ser repassado ao consumidor final nos postos de combustível.'},
-        { title: 'Produção de petróleo no Brasil bate recorde em maio', source: 'Agência Nacional do Petróleo', summary: 'A extração de petróleo e gás natural atingiu novos picos, impulsionada pela produtividade do pré-sal.'}
+        { title: 'Preço do barril Brent opera em alta', source: 'Infomoney', url: '#', summary: 'A cotação do petróleo tipo Brent subiu mais de 2% nesta sexta-feira, refletindo a instabilidade geopolítica. Analistas não descartam novas altas caso as tensões na principal região produtora do mundo continuem a escalar.' },
+        { title: 'Petrobras anuncia descoberta de nova reserva', source: 'Estadão', url: '#', summary: 'A nova reserva tem potencial para aumentar significativamente a produção nacional nos próximos anos. A descoberta ocorreu em águas profundas da Bacia de Santos e representa um marco importante para a exploração de petróleo no Brasil.' }
     ],
     'Ibovespa': [
-        { title: 'Ibovespa fecha em queda com dados de emprego nos EUA', source: 'G1', summary: 'O principal índice da bolsa brasileira recuou 1,2% após a divulgação de números do mercado de trabalho americano...' },
-        { title: 'Ações de varejistas pressionam Ibovespa para baixo', source: 'UOL Economia', summary: 'O setor de varejo teve um dia negativo na bolsa, com grandes redes registrando perdas expressivas...' },
-        { title: 'Entrada de capital estrangeiro na B3 é a maior em três meses', source: 'Valor Econômico', summary: 'Investidores estrangeiros voltaram a alocar recursos no mercado de ações brasileiro, sinalizando otimismo.'},
-        { title: 'Setor bancário sustenta Ibovespa e evita queda maior', source: 'InfoMoney', summary: 'As ações dos grandes bancos tiveram desempenho positivo, contrabalançando a queda de outros setores.'},
-        { title: 'Expectativa com reforma tributária anima investidores', source: 'Broadcast', summary: 'A possibilidade de avanço da pauta econômica no Congresso gera otimismo no mercado financeiro.'},
-        { title: 'Volatilidade do Ibovespa deve continuar no curto prazo, alertam analistas', source: 'Exame', summary: 'O cenário de juros altos e incertezas globais deve manter a bolsa brasileira instável.'}
+        { title: 'Ibovespa fecha em queda com dados dos EUA', source: 'G1', url: '#', summary: 'O principal índice da bolsa brasileira recuou 1,2% após a divulgação de números do mercado de trabalho americano. Os dados vieram mais fortes do que o esperado, aumentando os temores de que o Federal Reserve possa manter os juros altos por mais tempo.' },
+        { title: 'Ações de varejistas pressionam Ibovespa', source: 'UOL Economia', url: '#', summary: 'O setor de varejo teve um dia negativo na bolsa, com grandes redes registrando perdas expressivas. A queda foi atribuída à alta dos juros futuros e à preocupação com o poder de compra do consumidor diante da inflação.' }
     ],
     'Dólar': [
-        { title: 'Dólar comercial fecha cotado a R$ 5,45 com intervenção do Banco Central', source: 'Folha de S.Paulo', summary: 'A moeda americana registrou forte volatilidade durante o pregão, levando o BC a atuar no mercado de câmbio...' },
-        { title: 'Fluxo cambial para o Brasil é negativo em US$ 3 bilhões no mês', source: 'Exame', summary: 'A saída de dólares do país supera a entrada, pressionando a taxa de câmbio e refletindo a aversão ao risco...' },
-        { title: 'Dólar turismo ultrapassa R$ 5,60 em casas de câmbio', source: 'G1', summary: 'A alta do dólar comercial reflete-se diretamente no custo para viagens internacionais.'},
-        { title: 'Exportadores aproveitam alta do dólar para fechar contratos', source: 'Valor Econômico', summary: 'O setor exportador beneficia-se da valorização da moeda americana, tornando os produtos brasileiros mais competitivos.'},
-        { title: 'Incerteza fiscal é o principal fator de pressão sobre o câmbio', source: 'Estadão', summary: 'Analistas apontam que as dúvidas sobre as contas públicas do país afastam investidores e valorizam o dólar.'},
-        { title: 'BC vende US$ 500 milhões em leilão de swap para conter alta do dólar', source: 'Reuters', summary: 'O Banco Central atuou novamente no mercado para tentar suavizar a volatilidade da moeda.'}
+        { title: 'Dólar fecha cotado a R$ 5,45', source: 'Folha de S.Paulo', url: '#', summary: 'A moeda americana registrou forte volatilidade durante o pregão, levando o BC a atuar no mercado de câmbio. A intervenção ajudou a conter uma alta ainda maior, mas o cenário de aversão ao risco global continua a pressionar a moeda.' },
+        { title: 'Fluxo cambial para o Brasil é negativo', source: 'Exame', url: '#', summary: 'A saída de dólares do país supera a entrada, pressionando a taxa de câmbio e refletindo a aversão ao risco. Investidores estrangeiros têm retirado recursos de mercados emergentes em busca de segurança em ativos americanos.' }
     ]
 };
 
 // --- Seleção de Elementos do DOM ---
 const mainContent = document.getElementById('main-content');
 const themesContainer = document.getElementById('themes-container');
+const newsModal = document.getElementById('news-modal');
+const closeModalButton = document.getElementById('close-modal-button');
+const modalTitle = document.getElementById('modal-title');
+const modalSummary = document.getElementById('modal-summary');
+const modalSource = document.getElementById('modal-source');
+const modalLink = document.getElementById('modal-link');
+
+
+// --- Funções do Modal ---
+const openNewsModal = (data) => {
+    modalTitle.textContent = data.title;
+    modalSummary.textContent = data.summary;
+    modalSource.textContent = data.source;
+    modalLink.href = data.url;
+    newsModal.classList.remove('hidden');
+};
+
+const closeNewsModal = () => {
+    newsModal.classList.add('hidden');
+};
 
 // --- Função para Renderizar Notícias ---
 const renderNews = (theme) => {
@@ -58,17 +62,17 @@ const renderNews = (theme) => {
     // Função auxiliar para criar um card de notícia
     const createNewsCard = (article) => {
         const card = document.createElement('div');
-        card.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-sm p-5 transition-all hover:shadow-md';
+        // Adiciona a classe e os data attributes para o clique
+        card.className = 'news-card bg-white dark:bg-gray-800 rounded-xl shadow-sm p-5 transition-all hover:shadow-md cursor-pointer';
+        card.dataset.title = article.title;
+        card.dataset.summary = article.summary;
+        card.dataset.source = article.source;
+        card.dataset.url = article.url;
+
         card.innerHTML = `
-            <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100 mb-1">${article.title}</h3>
-            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">Fonte: ${article.source}</p>
-            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">${article.summary}</p>
-            <div class="flex justify-end">
-                 <a href="#" class="flex items-center space-x-2 text-sm font-semibold text-navy dark:text-yellow-dark hover:underline">
-                    <span>Acessar fonte</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                </a>
-            </div>
+            <h3 class="font-bold text-lg text-gray-900 dark:text-gray-100 mb-1 pointer-events-none">${article.title}</h3>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 pointer-events-none">Fonte: ${article.source}</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 pointer-events-none">${article.summary.substring(0, 100)}...</p>
         `;
         return card;
     };
@@ -114,19 +118,39 @@ const renderNews = (theme) => {
 themesContainer.addEventListener('click', (e) => {
     const themeButton = e.target.closest('.theme-btn');
     if (themeButton) {
-        // Remove a classe ativa de todos os botões
         document.querySelectorAll('.theme-btn').forEach(btn => {
             btn.classList.remove('theme-button-active');
             btn.classList.add('theme-button');
         });
-        // Adiciona a classe ativa ao botão clicado
         themeButton.classList.add('theme-button-active');
         themeButton.classList.remove('theme-button');
-
         const theme = themeButton.dataset.theme;
         renderNews(theme);
     }
 });
+
+// --- Lógica para Abrir o Modal de Notícia ---
+mainContent.addEventListener('click', (e) => {
+    const card = e.target.closest('.news-card');
+    if (card) {
+        const newsDetails = {
+            title: card.dataset.title,
+            summary: card.dataset.summary,
+            source: card.dataset.source,
+            url: card.dataset.url,
+        };
+        openNewsModal(newsDetails);
+    }
+});
+
+// --- Event Listeners para Fechar o Modal ---
+closeModalButton.addEventListener('click', closeNewsModal);
+newsModal.addEventListener('click', (e) => {
+    if (e.target === newsModal) {
+        closeNewsModal();
+    }
+});
+
 
 // --- Seleção de Elementos do DOM (Navegação) ---
 const dashboardView = document.getElementById('dashboard-view');
