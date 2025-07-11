@@ -2,23 +2,43 @@
 const newsData = {
     'Inflação': [
         { title: 'BC projeta alta da inflação para o próximo trimestre', source: 'Valor Econômico', summary: 'O comitê de política monetária indicou em ata que a projeção de alta nos preços é influenciada pelo cenário externo...' },
-        { title: 'Presidente do FED fará pronunciamento sobre juros amanhã', source: 'Reuters', summary: 'A expectativa do mercado é de que a taxa de juros se mantenha estável, mas o comunicado pode trazer novas sinalizações...' }
+        { title: 'Presidente do FED fará pronunciamento sobre juros amanhã', source: 'Reuters', summary: 'A expectativa do mercado é de que a taxa de juros se mantenha estável, mas o comunicado pode trazer novas sinalizações...' },
+        { title: 'Índice de preços ao consumidor acelera em maio', source: 'IBGE', summary: 'A principal alta foi observada no grupo de alimentos e bebidas, pressionando o orçamento das famílias.'},
+        { title: 'Analistas de mercado revisam projeção de inflação para cima', source: 'InfoMoney', summary: 'O Boletim Focus desta semana mostra que a expectativa para o IPCA no final do ano subiu pela quarta vez consecutiva.'},
+        { title: 'Impacto do câmbio na inflação deve ser monitorado, diz economista', source: 'CNN Brasil', summary: 'A desvalorização do real frente ao dólar pode encarecer produtos importados e insumos para a indústria.'},
+        { title: 'Governo anuncia medidas para tentar conter a alta dos preços', source: 'G1', summary: 'O pacote inclui a redução de impostos sobre determinados produtos e a renegociação de dívidas.'}
     ],
     'Energia': [
         { title: 'Aneel aprova reajuste em tarifas de energia para distribuidoras do Nordeste', source: 'Agência Brasil', summary: 'Os novos valores entram em vigor a partir do próximo mês e impactarão consumidores residenciais e comerciais...' },
-        { title: 'Construção de novo parque eólico no Rio Grande do Sul é anunciada', source: 'Canal Energia', summary: 'O investimento de R$ 2 bilhões visa ampliar a capacidade de geração de energia renovável na região...' }
+        { title: 'Construção de novo parque eólico no Rio Grande do Sul é anunciada', source: 'Canal Energia', summary: 'O investimento de R$ 2 bilhões visa ampliar a capacidade de geração de energia renovável na região...' },
+        { title: 'Crise hídrica pode levar a novo aumento na conta de luz', source: 'Folha de S.Paulo', summary: 'O baixo nível dos reservatórios das hidrelétricas acende um alerta para a necessidade de acionamento de termelétricas.'},
+        { title: 'Brasil avança em ranking de energia solar', source: 'Estadão', summary: 'O país ultrapassou a marca de 40 GW de potência instalada, consolidando-se como um dos líderes globais no setor.'},
+        { title: 'Leilão de transmissão contrata R$ 15 bilhões em investimentos', source: 'Valor Econômico', summary: 'Os novos projetos visam reforçar a rede elétrica e garantir o escoamento da energia de fontes renováveis.'},
+        { title: 'Baterias de armazenamento são a nova fronteira do setor elétrico', source: 'Exame', summary: 'Tecnologias para armazenar energia e garantir estabilidade à rede ganham cada vez mais espaço.'}
     ],
     'Petróleo': [
         { title: 'Preço do barril Brent opera em alta com tensões no Oriente Médio', source: 'Infomoney', summary: 'A cotação do petróleo tipo Brent subiu mais de 2% nesta sexta-feira, refletindo a instabilidade geopolítica...' },
-        { title: 'Petrobras anuncia descoberta de nova reserva no pré-sal', source: 'Estadão', summary: 'A nova reserva tem potencial para aumentar significativamente a produção nacional nos próximos anos...' }
+        { title: 'Petrobras anuncia descoberta de nova reserva no pré-sal', source: 'Estadão', summary: 'A nova reserva tem potencial para aumentar significativamente a produção nacional nos próximos anos...' },
+        { title: 'OPEP mantém previsão de crescimento da demanda global por petróleo', source: 'Reuters', summary: 'A organização acredita que o consumo mundial continuará a crescer, apesar das incertezas econômicas.'},
+        { title: 'Transição energética pressiona gigantes do petróleo a diversificar', source: 'The Wall Street Journal', summary: 'Grandes companhias petrolíferas estão a investir em energias renováveis para se adaptarem a um futuro de baixo carbono.'},
+        { title: 'Preços da gasolina e do diesel devem subir na próxima semana', source: 'UOL Economia', summary: 'O reajuste nas refinarias deve ser repassado ao consumidor final nos postos de combustível.'},
+        { title: 'Produção de petróleo no Brasil bate recorde em maio', source: 'Agência Nacional do Petróleo', summary: 'A extração de petróleo e gás natural atingiu novos picos, impulsionada pela produtividade do pré-sal.'}
     ],
     'Ibovespa': [
         { title: 'Ibovespa fecha em queda com dados de emprego nos EUA', source: 'G1', summary: 'O principal índice da bolsa brasileira recuou 1,2% após a divulgação de números do mercado de trabalho americano...' },
-        { title: 'Ações de varejistas pressionam Ibovespa para baixo', source: 'UOL Economia', summary: 'O setor de varejo teve um dia negativo na bolsa, com grandes redes registrando perdas expressivas...' }
+        { title: 'Ações de varejistas pressionam Ibovespa para baixo', source: 'UOL Economia', summary: 'O setor de varejo teve um dia negativo na bolsa, com grandes redes registrando perdas expressivas...' },
+        { title: 'Entrada de capital estrangeiro na B3 é a maior em três meses', source: 'Valor Econômico', summary: 'Investidores estrangeiros voltaram a alocar recursos no mercado de ações brasileiro, sinalizando otimismo.'},
+        { title: 'Setor bancário sustenta Ibovespa e evita queda maior', source: 'InfoMoney', summary: 'As ações dos grandes bancos tiveram desempenho positivo, contrabalançando a queda de outros setores.'},
+        { title: 'Expectativa com reforma tributária anima investidores', source: 'Broadcast', summary: 'A possibilidade de avanço da pauta econômica no Congresso gera otimismo no mercado financeiro.'},
+        { title: 'Volatilidade do Ibovespa deve continuar no curto prazo, alertam analistas', source: 'Exame', summary: 'O cenário de juros altos e incertezas globais deve manter a bolsa brasileira instável.'}
     ],
     'Dólar': [
         { title: 'Dólar comercial fecha cotado a R$ 5,45 com intervenção do Banco Central', source: 'Folha de S.Paulo', summary: 'A moeda americana registrou forte volatilidade durante o pregão, levando o BC a atuar no mercado de câmbio...' },
-        { title: 'Fluxo cambial para o Brasil é negativo em US$ 3 bilhões no mês', source: 'Exame', summary: 'A saída de dólares do país supera a entrada, pressionando a taxa de câmbio e refletindo a aversão ao risco...' }
+        { title: 'Fluxo cambial para o Brasil é negativo em US$ 3 bilhões no mês', source: 'Exame', summary: 'A saída de dólares do país supera a entrada, pressionando a taxa de câmbio e refletindo a aversão ao risco...' },
+        { title: 'Dólar turismo ultrapassa R$ 5,60 em casas de câmbio', source: 'G1', summary: 'A alta do dólar comercial reflete-se diretamente no custo para viagens internacionais.'},
+        { title: 'Exportadores aproveitam alta do dólar para fechar contratos', source: 'Valor Econômico', summary: 'O setor exportador beneficia-se da valorização da moeda americana, tornando os produtos brasileiros mais competitivos.'},
+        { title: 'Incerteza fiscal é o principal fator de pressão sobre o câmbio', source: 'Estadão', summary: 'Analistas apontam que as dúvidas sobre as contas públicas do país afastam investidores e valorizam o dólar.'},
+        { title: 'BC vende US$ 500 milhões em leilão de swap para conter alta do dólar', source: 'Reuters', summary: 'O Banco Central atuou novamente no mercado para tentar suavizar a volatilidade da moeda.'}
     ]
 };
 
@@ -31,17 +51,12 @@ const renderNews = (theme) => {
     mainContent.innerHTML = ''; // Limpa o conteúdo atual
     const articles = newsData[theme] || [];
     
-    const title = document.createElement('h2');
-    title.className = 'text-xl font-bold text-navy mb-4';
-    title.textContent = `Resultados para "${theme}"`;
-    mainContent.appendChild(title);
+    // Divide os artigos nas seções solicitadas
+    const relevantArticles = articles.slice(0, 4);
+    const recentArticles = articles.slice(4, 6);
 
-    if (articles.length === 0) {
-        mainContent.innerHTML += '<p class="dark:text-gray-400">Nenhuma notícia encontrada para este tema.</p>';
-        return;
-    }
-
-    articles.forEach(article => {
+    // Função auxiliar para criar um card de notícia
+    const createNewsCard = (article) => {
         const card = document.createElement('div');
         card.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-sm p-5 transition-all hover:shadow-md';
         card.innerHTML = `
@@ -55,9 +70,45 @@ const renderNews = (theme) => {
                 </a>
             </div>
         `;
-        mainContent.appendChild(card);
-    });
+        return card;
+    };
+
+    // Renderiza a seção "Sites Relevantes"
+    if (relevantArticles.length > 0) {
+        const relevantTitle = document.createElement('h2');
+        relevantTitle.className = 'text-xl font-bold text-navy mb-4';
+        relevantTitle.textContent = 'Sites Relevantes';
+        mainContent.appendChild(relevantTitle);
+
+        const relevantContainer = document.createElement('div');
+        relevantContainer.className = 'space-y-4';
+        relevantArticles.forEach(article => {
+            relevantContainer.appendChild(createNewsCard(article));
+        });
+        mainContent.appendChild(relevantContainer);
+    }
+
+    // Renderiza a seção "Mais recentes"
+    if (recentArticles.length > 0) {
+        const recentTitle = document.createElement('h2');
+        recentTitle.className = 'text-xl font-bold text-navy mt-8 mb-4';
+        recentTitle.textContent = 'Mais recentes';
+        mainContent.appendChild(recentTitle);
+
+        const recentContainer = document.createElement('div');
+        recentContainer.className = 'space-y-4';
+        recentArticles.forEach(article => {
+            recentContainer.appendChild(createNewsCard(article));
+        });
+        mainContent.appendChild(recentContainer);
+    }
+
+    // Mensagem caso não haja notícias para o tema
+    if (articles.length === 0) {
+        mainContent.innerHTML = '<p class="dark:text-gray-400">Nenhuma notícia encontrada para este tema.</p>';
+    }
 };
+
 
 // --- Lógica para os Botões de Tema ---
 themesContainer.addEventListener('click', (e) => {
